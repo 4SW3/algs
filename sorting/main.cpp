@@ -78,7 +78,7 @@ public:
 
     while (i < n1 && j < n2) {
       if (left[i] <= right[j]) res.pb(left[i++]);
-      else                    res.pb(right[j++]);
+      else                     res.pb(right[j++]);
     }
 
     while (i < n1) res.pb(left[i++]);
@@ -95,7 +95,6 @@ public:
     return merge(mergeSort(left), mergeSort(right));
   }
 };
-
 
 int main() {
   SortingAlgs<int> sa;
