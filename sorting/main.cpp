@@ -68,7 +68,7 @@ public:
             swapIdx = j;
       }
 
-      swapT(v[i], v[swapIdx]);
+      if (v[i] != v[swapIdx]) swapT(v[i], v[swapIdx]);
     }
   }
 
@@ -99,10 +99,6 @@ public:
 int main() {
   SortingAlgs<int> sa;
   vector<int> v{ 3,-3,1,-1,0,2,-2};
-
-  sa.print(v);
-  v = sa.mergeSort(v);
-  sa.print(v);
 
   return 0;
 }
