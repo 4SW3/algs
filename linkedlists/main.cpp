@@ -134,6 +134,24 @@ public:
     return removedNode;
   }
 
+  void reverse() {
+    Node<T> *prevNode{nullptr};
+    Node<T> *curNode{head};
+    Node<T> *nextNode{nullptr};
+
+    // size_t n = len;
+    // while (n--) OR
+    while (curNode != nullptr) {
+      nextNode = curNode->next;
+      curNode->next = prevNode;
+      prevNode = curNode;
+      curNode = nextNode;
+    }
+
+    tail = head;
+    head = prevNode;
+  }
+
   void recurPrint(Node<T> *node) {
     cout << node->value << " ";
     if (node->next != nullptr) recurPrint(node->next);
@@ -145,7 +163,7 @@ public:
     recurPrint(tempHead);
   }
 
-  // reverse() rotate(number)
+  // rotate(number)
 };
 
 int main() {
@@ -155,7 +173,8 @@ int main() {
   ll->push(30);
   ll->push(40);
   ll->push(50);
-  cout << "-> " << ll->remove(10)->value << endl;  
+  ll->print();
+  ll->reverse();
   ll->print();
   return 0;
 }
